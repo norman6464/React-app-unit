@@ -1,4 +1,4 @@
-# React-app-unit
+# react-app-unit
 授業用のリポジトリ
 
 扱ったライブラリ：
