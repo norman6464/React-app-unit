@@ -6,6 +6,7 @@ Babel（トランスパイラ（jsxなどをjavascriptに変換してくれる�
 WebPack（モジュールバンドラー）
 tailwind css（cssフレームワーク）
 MUI（material ui）
+React Query（ルーティングライブラリ）
 
 解発ツール：
 Thunder Client（fetchの検証用に使ってjson結果を得る）
