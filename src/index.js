@@ -5,7 +5,9 @@ import LearnSection from 'navigation/LearnSection';
 import HistorySection from 'navigation/HistorySection';
 import Header from 'header/Header';
 import ReviewSection from 'body/ReviewSection';
-import Footer from 'fotter/Footer';
+import Footer from 'footer/Footer';
+import FAQ from 'body/FAQ';
+import ContactForm from 'form/ContactForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +16,8 @@ root.render(
     <LearnSection />
     <HistorySection />
     <ReviewSection />
+    <FAQ />
+    <ContactForm />
     <Footer />
   </>
 );
