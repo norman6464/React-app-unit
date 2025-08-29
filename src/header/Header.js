@@ -1,25 +1,53 @@
 import React, { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Typography,
+  Button,
+} from '@mui/material';
 import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
-
+import styled from 'styled-components';
 import heroImage from '../asset/wood-iphone_X0R5VP6BSB.jpg';
 
+// styled-components: ハンバーガーアイコン
+const Hamburger = styled.div`
+  width: 24px;
+  height: 20px;
+  position: relative;
+  z-index: 2000;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  span {
+    display: block;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+  }
+
+  &.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  &.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+`;
+
 export default function Header() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const menuItems = [
@@ -30,9 +58,7 @@ export default function Header() {
     { label: 'Contact', href: '#contact' },
   ];
 
-  const toggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
+  const toggleDrawer = (open) => () => setDrawerOpen(open);
 
   return (
     <>
@@ -40,7 +66,7 @@ export default function Header() {
       <AppBar
         position="static"
         sx={{
-          bgcolor: '#f5f0eb',
+          bgcolor: '#efebf5a6',
           color: '#3c3c3c',
           boxShadow: 'none',
           height: '100px',
@@ -51,90 +77,55 @@ export default function Header() {
             display: 'flex',
             justifyContent: 'space-between',
             height: '100px',
+            px: 2,
           }}
         >
-          {/* 左ロゴ */}
+          {/* ロゴ */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <LocalPizzaIcon sx={{ color: '#d35400', fontSize: '2rem' }} />
             <Typography
               variant="h6"
-              sx={{ fontWeight: 'bold', color: '#3c3c3c', fontSize: '1.5rem' }}
+              sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
             >
               Napoli Pizza Elite
             </Typography>
           </Box>
 
-          {/* PC用メニュー */}
-          {!isMobile && (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-              {menuItems.map((item) => (
-                <Button
-                  key={item.label}
-                  href={item.href}
-                  sx={{
-                    color: '#3c3c3c',
-                    textTransform: 'none',
-                    fontWeight: '500',
-                    fontSize: '1.1rem',
-                    py: 1.5,
-                    px: 2,
-                  }}
-                >
-                  {item.label}
-                </Button>
-              ))}
-              <Button
-                variant="contained"
-                href="#book"
-                sx={{
-                  bgcolor: '#d35400',
-                  color: '#fff',
-                  textTransform: 'none',
-                  fontWeight: 'bold',
-                  fontSize: '1.1rem',
-                  py: 1.5,
-                  px: 3,
-                  '&:hover': { bgcolor: '#e67e22' },
-                }}
-              >
-                Book Now
-              </Button>
-            </Box>
-          )}
-
-          {/* モバイルメニュー */}
-          {isMobile && (
-            <IconButton
-              edge="end"
-              color="inherit"
-              aria-label="menu"
-              onClick={toggleDrawer(true)}
-              sx={{ my: 'auto' }}
-            >
-              <MenuIcon sx={{ color: '#3c3c3c', fontSize: '2rem' }} />
-            </IconButton>
-          )}
+          {/* ハンバーガー */}
+          <Hamburger
+            className={drawerOpen ? 'open' : ''}
+            onClick={() => setDrawerOpen(!drawerOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </Hamburger>
         </Toolbar>
       </AppBar>
 
-      {/* モバイルDrawer */}
-      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+      {/* ドロワー（左） */}
+      <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            width: 250,
+            bgcolor: '#121212',
+            color: '#fff',
+          },
+        }}
+      >
         <Box
-          sx={{ width: 250 }}
           role="presentation"
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
+          sx={{ mt: 8 }}
         >
           <List>
             {menuItems.map((item) => (
               <ListItem key={item.label} disablePadding>
-                <ListItemButton
-                  component="a"
-                  href={item.href}
-                  sx={{
-                    py: 1.5, // PCメニューの高さと揃える
-                  }}
-                >
+                <ListItemButton component="a" href={item.href}>
                   <ListItemText
                     primary={item.label}
                     primaryTypographyProps={{
@@ -153,7 +144,7 @@ export default function Header() {
                   bgcolor: '#d35400',
                   color: '#fff',
                   mt: 1,
-                  py: 1.5, // PCのBook Nowボタンの高さに合わせる
+                  py: 1.5,
                   justifyContent: 'center',
                 }}
               >
@@ -171,7 +162,7 @@ export default function Header() {
         </Box>
       </Drawer>
 
-      {/* メインセクション */}
+      {/* ヒーローセクション */}
       <Box
         sx={{
           height: { xs: 400, md: 600 },
