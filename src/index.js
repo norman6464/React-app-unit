@@ -4,6 +4,8 @@ import reportWebVitals from './reportWebVitals';
 import LearnSection from 'navigation/LearnSection';
 import HistorySection from 'navigation/HistorySection';
 import Header from 'header/Header';
+import ReviewSection from 'body/ReviewSection';
+import Footer from 'fotter/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,6 +13,8 @@ root.render(
     <Header />
     <LearnSection />
     <HistorySection />
+    <ReviewSection />
+    <Footer />
   </>
 );
 

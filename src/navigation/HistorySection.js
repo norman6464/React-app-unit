@@ -25,6 +25,7 @@ export default function HistorySection() {
         sx={{
           maxWidth: '700px', // 任意の制限幅（px / rem / % でもOK）
           mx: 'auto', // 水平方向に中央寄せ
+          fontSize: '20px',
         }}
       >
         Neapolitan pizza, a culinary icon originating from Naples, Italy, boasts

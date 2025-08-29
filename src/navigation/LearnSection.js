@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -27,60 +27,79 @@ const learnItems = [
 ];
 
 export default function LearnSection() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <Box sx={{ bgcolor: '#fff8f4', py: 8, px: 2, width: '100%' }}>
       <Typography
-        variant="h5"
+        variant="h4"
         component="h2"
         align="center"
         gutterBottom
-        sx={{ fontWeight: 'bold', mb: 6 }}
+        sx={{
+          fontWeight: 'bold',
+          mb: 8,
+          fontSize: { xs: '2.5rem', md: '3rem' },
+        }}
       >
         What You'll Learn
       </Typography>
-      <Grid container spacing={4} justifyContent="center">
+      <Grid container spacing={8} justifyContent="center">
         {learnItems.map((item, index) => (
           <Grid
             item
             xs={12}
-            sm={4}
+            sm={6}
+            md={4}
             key={index}
-            sx={{ display: 'flex', justifyContent: 'center' }} // 中央揃え
+            sx={{ display: 'flex', justifyContent: 'center' }}
           >
             <Paper
-              elevation={3}
+              elevation={4}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
               sx={{
-                p: 3,
-                borderRadius: 2,
+                p: 4,
+                borderRadius: 3,
                 textAlign: 'left',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'flex-start',
-                width: '280px', // 固定幅に設定（お好みで調整）
-                minWidth: '280px', // 最小幅も同じにして均等化
-                maxWidth: '280px',
+                width: '400px',
+                minWidth: '400px',
+                maxWidth: '400px',
+                transition: 'transform 0.3s ease',
+                transform: hoveredIndex === index ? 'scale(1.05)' : 'scale(1)',
               }}
             >
               <Avatar
                 sx={{
                   bgcolor: '#f4c6a0',
-                  mb: 2,
-                  width: 48,
-                  height: 48,
-                  fontSize: 24,
+                  mb: 3,
+                  width: 64,
+                  height: 64,
+                  fontSize: 36,
                 }}
                 aria-label={item.title}
               >
                 {item.icon}
               </Avatar>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
+              <Typography
+                variant="h5"
+                fontWeight="bold"
+                gutterBottom
+                sx={{ fontSize: { xs: '1.5rem', md: '1.8rem' } }}
+              >
                 {item.title}
               </Typography>
               <Typography
-                variant="body2"
+                variant="body1"
                 color="text.secondary"
-                sx={{ lineHeight: 1.6 }}
+                sx={{
+                  lineHeight: 1.8,
+                  fontSize: { xs: '1.1rem', md: '1.25rem' },
+                }}
               >
                 {item.description}
               </Typography>
