@@ -1,16 +1,16 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Navigation from 'navigation/Navigation';
-import CreatorList from 'navigation/CreatorList';
 import LearnSection from 'navigation/LearnSection';
+import HistorySection from 'navigation/HistorySection';
+import Header from 'header/Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Navigation />
+    <Header />
     <LearnSection />
-    <CreatorList />
+    <HistorySection />
   </>
 );
 
