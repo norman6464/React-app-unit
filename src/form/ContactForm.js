@@ -19,8 +19,8 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // 実際の送信処理（API連携など）はここに追加
-    console.log('Form submitted:', formData);
-    alert('Thank you for contacting us!');
+    console.log('送信データ:', formData);
+    alert('お問い合わせありがとうございます！');
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -33,7 +33,7 @@ export default function ContactForm() {
           gutterBottom
           sx={{ fontWeight: 'bold' }}
         >
-          Contact Us
+          お問い合わせ
         </Typography>
         <Box
           component="form"
@@ -41,14 +41,14 @@ export default function ContactForm() {
           sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
         >
           <TextField
-            label="Name"
+            label="お名前"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
           />
           <TextField
-            label="Email"
+            label="メールアドレス"
             name="email"
             type="email"
             value={formData.email}
@@ -56,7 +56,7 @@ export default function ContactForm() {
             required
           />
           <TextField
-            label="Message"
+            label="メッセージ"
             name="message"
             multiline
             rows={4}
@@ -70,7 +70,7 @@ export default function ContactForm() {
             color="primary"
             size="large"
           >
-            Send Message
+            送信する
           </Button>
         </Box>
       </Container>

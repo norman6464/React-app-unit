@@ -11,24 +11,24 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const faqs = [
   {
-    question: 'How much does the class cost?',
-    answer: 'Please contact us for current pricing.',
+    question: 'クラスの料金はいくらですか？',
+    answer: '現在の料金についてはお問い合わせください。',
   },
   {
-    question: 'How long is the class?',
-    answer: 'Each class is approximately 2 hours long.',
+    question: 'クラスの所要時間はどのくらいですか？',
+    answer: '各クラスは約2時間です。',
   },
   {
-    question: 'What is the class size?',
-    answer: 'We keep our class sizes small — usually 8-12 people.',
+    question: 'クラスの人数は何人ですか？',
+    answer: '少人数制で、通常8〜12名です。',
   },
   {
-    question: 'Do I need any prior cooking experience?',
-    answer: 'No prior experience is necessary!',
+    question: '料理経験は必要ですか？',
+    answer: '特別な経験は必要ありません！',
   },
   {
-    question: 'Where is the class located?',
-    answer: 'Classes are held at our downtown kitchen studio.',
+    question: 'クラスの場所はどこですか？',
+    answer: 'クラスは市内中心部のキッチンスタジオで開催されます。',
   },
 ];
 
@@ -37,12 +37,12 @@ export default function FAQ() {
     <Box sx={{ backgroundColor: '#fdf8f5', py: 6 }}>
       <Container maxWidth="sm">
         <Typography
-          variant="h4" // サイズを大きく
+          variant="h4"
           align="center"
           gutterBottom
           sx={{ fontWeight: 'bold' }}
         >
-          Frequently Asked Questions
+          よくある質問
         </Typography>
         {faqs.map((faq, index) => (
           <Accordion key={index}>

@@ -8,21 +8,21 @@ import Avatar from '@mui/material/Avatar';
 const learnItems = [
   {
     icon: '🍕',
-    title: 'Dough Perfection',
+    title: '生地の極意',
     description:
-      'Master the art of crafting the perfect dough, from mixing to proofing, ensuring a light and airy crust.',
+      '完璧な生地作りの技術を習得しましょう。混ぜ方から発酵まで、軽くてふわっとしたクラストを目指します。',
   },
   {
     icon: '🌀',
-    title: 'Traditional Techniques',
+    title: '伝統的な技法',
     description:
-      'Learn the time-honored techniques of Neapolitan pizza making, including hand-stretching and topping application.',
+      'ナポリピザ作りの伝統的な技法を学びます。手で伸ばす方法やトッピングの乗せ方をマスターしましょう。',
   },
   {
     icon: '🔥',
-    title: 'Baking Mastery',
+    title: '焼きの極意',
     description:
-      'Discover the secrets to achieving a perfectly baked pizza in a wood-fired oven, with a crispy crust and bubbly edges.',
+      '薪窯で完璧に焼き上げる秘訣を発見しましょう。パリッとしたクラストとふっくらした縁が特徴です。',
   },
 ];
 
@@ -42,7 +42,7 @@ export default function LearnSection() {
           fontSize: { xs: '2.5rem', md: '3rem' },
         }}
       >
-        What You'll Learn
+        学べること
       </Typography>
       <Grid container spacing={8} justifyContent="center">
         {learnItems.map((item, index) => (

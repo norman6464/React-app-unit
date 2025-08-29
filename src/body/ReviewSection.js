@@ -7,24 +7,24 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const reviews = [
   {
-    name: 'Sophia Rossi',
-    class: 'Class of 2023',
+    name: 'ソフィア・ロッシ',
+    class: '2023年クラス',
     rating: 5,
-    comment: `"This class was an absolute dream! Chef Luca's passion is contagious. The pizza we made was the best I've ever tasted."`,
+    comment: `"このクラスはまさに夢のようでした！シェフ・ルカの情熱が伝わってきます。作ったピザは今までで一番美味しかったです。"`,
     avatarUrl: '/path/to/sophia.jpg',
   },
   {
-    name: 'Marco Bianchi',
-    class: 'Class of 2023',
+    name: 'マルコ・ビアンキ',
+    class: '2023年クラス',
     rating: 5,
-    comment: `"Took my skills to a whole new level. The techniques were exceptional, and the atmosphere was incredibly welcoming. Highly recommend!"`,
+    comment: `"スキルが格段に向上しました。テクニックは素晴らしく、雰囲気もとても居心地が良かったです。強くおすすめします！"`,
     avatarUrl: '/path/to/marco.jpg',
   },
   {
-    name: 'Isabella Conti',
-    class: 'Class of 2023',
+    name: 'イザベラ・コンティ',
+    class: '2023年クラス',
     rating: 4.5,
-    comment: `"The highlight of my trip to Naples. Chef Luca is a fantastic teacher. Left with confidence to recreate authentic Neapolitan pizza."`,
+    comment: `"ナポリ旅行のハイライトでした。シェフ・ルカは素晴らしい先生です。本場のナポリピザを自信を持って再現できるようになりました。"`,
     avatarUrl: '/path/to/isabella.jpg',
   },
 ];
@@ -66,7 +66,7 @@ export default function ReviewSection() {
         mb={8}
         sx={{ fontSize: { xs: '2.5rem', md: '3rem' } }}
       >
-        Voices of Our Pizzeria Pros
+        ピッツェリアプロたちの声
       </Typography>
 
       <Box

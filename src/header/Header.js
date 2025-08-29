@@ -10,10 +10,12 @@ import {
   ListItemText,
   Typography,
   Button,
+  Avatar,
 } from '@mui/material';
-import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
+
 import styled from 'styled-components';
 import heroImage from '../asset/wood-iphone_X0R5VP6BSB.jpg';
+import logo from '../asset/壱.jpg';
 
 // styled-components: ハンバーガーアイコン
 const Hamburger = styled.div`
@@ -51,11 +53,11 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const menuItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Class Details', href: '#class-details' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Contact', href: '#contact' },
+    { label: '概要', href: '#about' },
+    { label: 'クラス詳細', href: '#class-details' },
+    { label: 'お客様の声', href: '#testimonials' },
+    { label: 'よくある質問', href: '#faq' },
+    { label: 'お問い合わせ', href: '#contact' },
   ];
 
   const toggleDrawer = (open) => () => setDrawerOpen(open);
@@ -82,12 +84,16 @@ export default function Header() {
         >
           {/* ロゴ */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <LocalPizzaIcon sx={{ color: '#d35400', fontSize: '2rem' }} />
+            <Avatar
+              alt="プロフィール画像"
+              src={logo} // ← ここに自分の画像パスを指定
+              sx={{ width: 60, height: 50 }} // 丸いサイズ調整
+            />
             <Typography
               variant="h6"
               sx={{ fontWeight: 'bold', fontSize: '1.5rem' }}
             >
-              Napoli Pizza Elite
+              ユリ
             </Typography>
           </Box>
 
@@ -149,7 +155,7 @@ export default function Header() {
                 }}
               >
                 <ListItemText
-                  primary="Book Now"
+                  primary="予約する"
                   primaryTypographyProps={{
                     fontSize: '1.1rem',
                     fontWeight: 'bold',
@@ -191,14 +197,13 @@ export default function Header() {
               fontSize: { xs: '2rem', md: '3rem' },
             }}
           >
-            Master the Art of Neapolitan Pizza
+            ナポリピッツァの技を習得しよう
           </Typography>
           <Typography
             variant="body1"
             sx={{ mb: 3, maxWidth: 600, mx: 'auto', fontSize: '1.7rem' }}
           >
-            Join our exclusive, once-a-year cooking class in Naples and learn
-            the secrets of authentic homemade pizza from a renowned chef.
+            ナポリで年に一度だけ開催される限定クッキングクラスに参加して、有名シェフから本格的な自家製ピザの秘訣を学びましょう。
           </Typography>
           <Button
             variant="contained"
@@ -215,7 +220,7 @@ export default function Header() {
               '&:hover': { bgcolor: '#e67e22' },
             }}
           >
-            Book Your Spot
+            予約する
           </Button>
         </Box>
       </Box>
